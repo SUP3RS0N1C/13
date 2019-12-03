@@ -24,7 +24,7 @@ struct keytab keywrds[13/*원래는 매크로로 들어가야함*/] ={
 void count_word(char *word){
 	int i;
 	//repeat each keywords
-	for (i=0;1<13;i++)
+	for (i=0;i<13;i++)
 	{	//if word and i'th keyword is same
 		if(strncmp(word, keywrds[i].name, strlen(keywrds[i].name)/*keywrds문자열의 길이*/)==0/*n개까지 비교*/){
 			//nums++;
@@ -40,6 +40,6 @@ void print_word()//키워드의 등장횟수를 프린트
 	for(i=0;i<13;i++)
 	{
 		//printf(키워드이름:빈도수);
-		printf("%s : %i", keywrds[i].name, keywrds[i].nums);
+		printf("%s : %i\n", keywrds[i].name, keywrds[i].nums);
 	}
 }

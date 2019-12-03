@@ -34,19 +34,19 @@ int fget_word(FILE* fp, char* word)
 		return 0;
 	}
 	
-		cnt = 0;
-		word[cnt++] = c;
-		word[cnt] = '\0';
-		
-		while((word[cnt] = fgetc(fp)) != EOF)
+	cnt = 0;
+	word[cnt++] = c;
+	word[cnt] = '\0';
+	
+	while((word[cnt] = fgetc(fp)) != EOF)
+	{
+		if (is_whitespace(word[cnt])==1)
 		{
-			if (is_whitespace(word[cnt])==1)
-			{
-				word[cnt] ='\0';
-				break;
-			}
-			cnt++;
+			word[cnt] ='\0';
+			break;
 		}
+		cnt++;
+	}
 
 	return cnt;
 }
@@ -68,15 +68,13 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-
 	//word reading & analysis
-	
-	count_word(word);
-	
 	while(fget_word(fp,word) != 0)
 	{
-		print_word();
+		count_word(word);
 	}
+	//output
+	print_word();
 	
 	/*
 	while(fget_word(fp,word) != 0)
@@ -84,8 +82,6 @@ int main(int argc, char *argv[])
 		printf("%s\n", word);
 	}//검증용 임시코드  
 	*/
-	
-	//output
 	fclose(fp);
 	
 	return 0;
