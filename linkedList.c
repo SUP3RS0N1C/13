@@ -1,4 +1,5 @@
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 //프레임형성  
 typedef struct linknode{
@@ -16,7 +17,7 @@ int create_node(int value)//그떄그때 메모리를 잡는다
 	int cnt;
 	
 	ptr = (ln_t*/*할당?*/)malloc(sizeof(ln_t));//맬록을통해 메모리를 잡는다
-	if(ptr == "NULL")//메모리 부족해서 안잡히는 경우 할당을 못받아서 널값이됨  
+	if(ptr == NULL)//메모리 부족해서 안잡히는 경우 할당을 못받아서 널값이됨  
 	{
 		//printf("memory error")
 		return -1; 
